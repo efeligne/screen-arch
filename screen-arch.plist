@@ -6,7 +6,7 @@
     <string>screen-arch.plist</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/efeligne/Developer/Go/screen-arch/screen-arch</string>
+        <string>/usr/local/bin/screen-arch</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
