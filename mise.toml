@@ -1,0 +1,19 @@
+[tools]
+go = "1.24.2"
+golangci-lint = "2.12.2"
+
+[vars]
+app_name = 'screen-arch'
+build = 'go build'
+run = 'go run'
+golangci = 'golangci-lint'
+linter = '{{vars.golangci}} run --config=.golangci.yml'
+
+[tasks]
+dev = '{{vars.run}} main.go'
+build = '{{vars.build}} -o ./{{vars.app_name}} .'
+lint = ['{{vars.golangci}} cache clean', '{{vars.linter}} ./...']
+format = [
+  '{{vars.golangci}} cache clean',
+  '{{vars.linter}} --fix --issues-exit-code=0 ./... >/dev/null && echo "Done!" ',
+]
