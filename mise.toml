@@ -18,10 +18,11 @@ format = [
   '{{vars.linter}} --fix --issues-exit-code=0 ./... >/dev/null && echo "Done!" ',
 ]
 install = [
+  'test ! -f /usr/local/bin/{{vars.app_name}} || (echo "error: /usr/local/bin/{{vars.app_name}} already exists, aborting" && exit 1)',
   '{{vars.build}} -o ./{{vars.app_name}} .',
   'sudo cp ./{{vars.app_name}} /usr/local/bin/{{vars.app_name}}',
 ]
 launch_agent = [
-  'cp screen-arch.plist ~/Library/LaunchAgents',
-  'launchctl load ~/Library/LaunchAgents/screen-arch.plist',
+  'cp com.efeligne.screen-arch.plist ~/Library/LaunchAgents',
+  'launchctl load ~/Library/LaunchAgents/com.efeligne.screen-arch.plist',
 ]

@@ -20,22 +20,20 @@
 
 ## Установка
 
+### Через mise (рекомендуется)
+
 ```bash
-go build -o screen-arch .
+mise install       # сборка и установка в /usr/local/bin
+mise launch_agent  # регистрация в launchd
 ```
 
-## Настройка фонового агента (launchd)
+### Вручную
 
-1. Скопируйте `.plist` в директорию LaunchAgents:
-
-   ```bash
-   cp screen-arch.plist ~/Library/LaunchAgents/
-   ```
-
-2. Загрузите агент:
-
-   ```bash
-   launchctl load ~/Library/LaunchAgents/screen-arch.plist
-   ```
+```bash
+go build -o screen-arch .
+sudo cp screen-arch /usr/local/bin/
+cp com.efeligne.screen-arch.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.efeligne.screen-arch.plist
+```
 
 Агент запускается однократно при входе в систему, сортирует файлы и завершается.

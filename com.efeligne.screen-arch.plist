@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>screen-arch.plist</string>
+    <string>com.efeligne.screen-arch</string>
     <key>ProgramArguments</key>
     <array>
         <string>/usr/local/bin/screen-arch</string>
